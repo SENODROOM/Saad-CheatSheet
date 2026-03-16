@@ -3,10 +3,23 @@ netstat -ano | findstr :5000
 taskkill /PID 17664 /F 
 
 
-# TO DELETE MASTER BRANCH AND TO MOVE TO MAIN
+# TO UNDO GIT ADD:
+git restore --staged <file>
+
+# TO UNDO GIT COMMIT:
+git reset --hard HEAD~1
+
+
+# TO DELETE MASTER BRANCH AND TO MOVE TO MAIN:
 git branch -M main
 git push -u origin main
 
+
+# SUBMODULE TEMPLATE:
+[submodule "design"]
+	path = docs/design
+	url = https://github.com/SENODROOM/QLang-DesginDocs.git
+	branch = main
 
 
 # TO UPDATE THE GITHUB SUBMODULES TO LATEST COMMITS:
