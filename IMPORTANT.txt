@@ -21,6 +21,11 @@ git push -u origin main
 	url = https://github.com/SENODROOM/QLang-DesginDocs.git
 	branch = main
 
+# USE GIT SUBTREE:
+git remote add <remote-name> https://github.com/SENODROOM/Python.git
+git subtree add --prefix=<folder-path> <remote-name> <branch>
+git subtree pull --prefix=repo1 repo1 main
+git subtree push --prefix=repo1 repo1 main
 
 # TO UPDATE THE GITHUB SUBMODULES TO LATEST COMMITS:
 git submodule update --remote --merge
@@ -66,5 +71,19 @@ git remote set-url origin https://github.com/YourUsername/NewRepo.git
 
 
 # GOING BACK TO A COMMIT:
-git reset --hard 8e4d131af64745ad32fdc3c67de6c4d4df95a107
+git reset --hard 53c78d4a0031072a12f0c9f6c33fa5dad0967319
 git push origin HEAD --force
+
+
+# TO CREATE A PyPI PACKAGE:
+poetry init
+python -m build
+python -m twine upload dist/*
+
+# UPDATING IT:
+python -m build
+python -m twine upload dist/*
+
+
+# RELEASING A GITHUB RELEASE:
+gh release create v3.1.4 --title "v3.1.4" --notes "real hadith data"
